@@ -10,6 +10,7 @@ terraform {
 }
 
 provider "aws" {
+  alias = "us-east-2"
   region = "us-east-2"
 }
 
@@ -20,4 +21,6 @@ resource "aws_instance" "app_server" {
   tags = {
     Name = "AWS_ArgoCD_Terraform"
   }
+
+  provider = aws.us-east-2
 }
